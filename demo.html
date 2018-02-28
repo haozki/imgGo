@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>File Upload</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <!-- 要确保文件上传表单的属性是 enctype="multipart/form-data"，否则文件上传不了 -->
+        <form enctype="multipart/form-data" action="demo.php" method="POST">
+            <!-- 
+            MAX_FILE_SIZE 隐藏字段（单位为字节）必须放在文件输入字段之前，其值为接收文件的最大尺寸。
+            这是对浏览器的一个建议，PHP 也会检查此项。
+            在浏览器端可以简单绕过此设置，因此不要指望用此特性来阻挡大文件。
+            实际上，PHP 设置中的上传文件最大值是不会失效的。
+            但是最好还是在表单中加上此项目，因为它可以避免用户在花时间等待上传大文件之后才发现文件过大上传失败的麻烦。
+            -->
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000000">
+            Select file: <input name="userfile" type="file">
+            <input type="submit" value="Send File">
+        </form>
+    </body>
+</html>
